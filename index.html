@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+    <style>
+        html {
+            background-color: #202124;
+    
+        }
+        
+        .main {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            min-height: 50vh;
+        }
+
+        header {
+            color: white; 
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        .divhf {
+            display: flex; 
+            align-items: center;
+            padding: 1.5vh;
+        }
+
+        .search {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .search input {
+            margin: 1vh;
+        }
+
+        a {
+            color: white; 
+            padding-left: 2vh;
+            text-decoration: none;
+        }
+
+        .divhf a {
+            color: white; 
+            text-decoration: none;
+            margin: auto;
+        }
+
+        a:hover{
+            text-decoration: underline;
+        }
+
+        .sign-in {
+            margin: 1vh;
+            padding: 1vh 1vh 1vh 1vh;
+            color: white;
+            background-color: dimgray;
+        }
+
+        footer {
+            color: white; 
+            background-color: #171717;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            right: .1vh;
+        }
+
+        .leaf {
+            height: 14px;
+            margin-right: .1px;
+        }
+    </style>
+    <header>
+        <div class="div-left">        
+            <a href='#t1'>About</a>
+            <a href='#t2'>Store</a> 
+        </div>
+        <div class="div-right">
+            <a href='#t1'>Gmail</a>
+            <a href='#t2'>Images</a> 
+            <input type="submit" class="sign-in" value="Sign In">
+        </div>
+    </header>
+    <body>
+        <div class="main">
+            <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_light_color_272x92dp.png">
+            <form class="search">
+                <input type="text">
+                <div class="buttons">
+                    <input type="submit" style="padding-right: .5vh;" value="Google Search">
+                    <input type="submit" value="I'm Feeling Lucky!">
+                </div>
+            </form>
+        </div>
+    </body>
+    <footer>
+        <div class="divhf">        
+            <a href='#t1'>Advertising</a>
+            <a href='#t2'>Business</a> 
+            <a href='#t2'>How Search Works</a> 
+        </div>
+        <span class="divhf">
+            <img class="leaf" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAYCAMAAAAiV0Z6AAAAPFBMVEVLoEN0wU6CzFKCzFKCzFKCzFKCzFJSo0MSczNDmkCCzFJPoUMTczNdr0gmgziCzFITczMTczMTczMTczPh00jOAAAAFHRSTlPF/+bIsms8Ad///hX+//5/tXw7aMEAx10AAACaSURBVHgBbc4HDoRQCATQ33tbvf9dF9QxaCT9UQaltLHOh/golXKhMs5Xqa0xU1lyoa2fXFyQOsDG38qsLy4TaV+sFislovyhPzLJJrBu6eQOtpW0LjbJkzTuTDLRVNKa3uxJI+VdiRqXSeu6GW+Qxi29eLIi8H7EsYrT42BD+mQtNO5JMjRuC4lSY8V4hsLX0egGijvUSEP9AbylEsOkeCgWAAAAAElFTkSuQmCC">
+            <a href="#t1">Carbon neutral since 2007</a>
+        </span>
+        <div class="divhf">
+            <a href='#t1'>Privacy</a>
+            <a href='#t2'>Terms</a> 
+            <a href='#t2'>Settings</a> 
+        </div>
+    </footer>
+</html>
