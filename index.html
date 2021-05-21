@@ -37,16 +37,26 @@
             margin: 1vh;
         }
 
-        a {
+        .divhf a {
             color: white; 
             padding-left: 2vh;
             text-decoration: none;
+            margin: auto;
         }
 
-        .divhf a {
+        .divhfc {
             color: white; 
             text-decoration: none;
-            margin: auto;
+            display: flex;
+            justify-content: center;
+            position:relative;
+            top: 36.7vh;
+        }
+
+        #special-link {
+            color: white; 
+            padding-left: .1vh;
+            text-decoration: none;
         }
 
         a:hover{
@@ -78,11 +88,11 @@
         }
     </style>
     <header>
-        <div class="div-left">        
-            <a href='#t1'>About</a>
-            <a href='#t2'>Store</a> 
+        <div class="divhf">        
+            <a href='https://external-preview.redd.it/1LfksKsGXtrTdUExezVcgRA4GtcXBp6f2AMlG7pJ-i4.png?format=pjpg&auto=webp&s=a6054de5a968de3e98a30066a29d92858e7e8d36'>About</a>
+            <a href='test.html'>Store</a> 
         </div>
-        <div class="div-right">
+        <div class="divhf">
             <a href='#t1'>Gmail</a>
             <a href='#t2'>Images</a> 
             <input type="submit" class="sign-in" value="Sign In">
@@ -106,14 +116,14 @@
             <a href='#t2'>Business</a> 
             <a href='#t2'>How Search Works</a> 
         </div>
-        <span class="divhf">
-            <img class="leaf" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAYCAMAAAAiV0Z6AAAAPFBMVEVLoEN0wU6CzFKCzFKCzFKCzFKCzFJSo0MSczNDmkCCzFJPoUMTczNdr0gmgziCzFITczMTczMTczMTczPh00jOAAAAFHRSTlPF/+bIsms8Ad///hX+//5/tXw7aMEAx10AAACaSURBVHgBbc4HDoRQCATQ33tbvf9dF9QxaCT9UQaltLHOh/golXKhMs5Xqa0xU1lyoa2fXFyQOsDG38qsLy4TaV+sFislovyhPzLJJrBu6eQOtpW0LjbJkzTuTDLRVNKa3uxJI+VdiRqXSeu6GW+Qxi29eLIi8H7EsYrT42BD+mQtNO5JMjRuC4lSY8V4hsLX0egGijvUSEP9AbylEsOkeCgWAAAAAElFTkSuQmCC">
-            <a href="#t1">Carbon neutral since 2007</a>
-        </span>
         <div class="divhf">
             <a href='#t1'>Privacy</a>
             <a href='#t2'>Terms</a> 
             <a href='#t2'>Settings</a> 
         </div>
     </footer>
+    <div class="divhfc">
+        <img class="leaf" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAYCAMAAAAiV0Z6AAAAPFBMVEVLoEN0wU6CzFKCzFKCzFKCzFKCzFJSo0MSczNDmkCCzFJPoUMTczNdr0gmgziCzFITczMTczMTczMTczPh00jOAAAAFHRSTlPF/+bIsms8Ad///hX+//5/tXw7aMEAx10AAACaSURBVHgBbc4HDoRQCATQ33tbvf9dF9QxaCT9UQaltLHOh/golXKhMs5Xqa0xU1lyoa2fXFyQOsDG38qsLy4TaV+sFislovyhPzLJJrBu6eQOtpW0LjbJkzTuTDLRVNKa3uxJI+VdiRqXSeu6GW+Qxi29eLIi8H7EsYrT42BD+mQtNO5JMjRuC4lSY8V4hsLX0egGijvUSEP9AbylEsOkeCgWAAAAAElFTkSuQmCC">
+        <a id=special-link href="#t1">Carbon neutral since 2007</a>
+    </div>
 </html>
