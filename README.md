@@ -1,1 +1,1 @@
-# bad-google
+# Files used for going through the Odin Project
