@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Page Title</title>
+  <meta charset="UTF-8"/>
+</head>
+<body>
+  <script>
+      function add7(number){
+        return number + 7
+      }
+
+      let multiply = (number1, number2) => number1 * number2
+
+      let capitalize = function (word) { 
+        return `${word[0].toUpperCase()}${word.slice(1)}` 
+      }
+
+      function capitalize2 (word) {
+        let word_characters = word.split("")
+        word_characters[0] = word_characters[0].toUpperCase()
+        return word_characters.join("")
+      }
+
+      let lastLetter = (word) => word[word.length-1]
+
+      let answer = parseInt(prompt("Stfu"))
+  </script>
+</body>
+</html>
