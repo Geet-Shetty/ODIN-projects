@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <div class="output">
+
+    </div>
+    <script>
+        const output = document.querySelector('.output') // . is class and # is id 
+        console.log(output)
+        for(let count = 10; count > -1; count--){
+            const para = document.createElement('p');
+            if(count === 10) {
+                para.textContent = `Countdown ${count}`; 
+            } else if (count === 0) {
+                para.textContent = 'Blast Off'; 
+            } else {
+                para.textContent = count;  
+            }
+            output.appendChild(para);
+        }
+    </script>
+</html>

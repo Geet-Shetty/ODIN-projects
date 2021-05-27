@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <div class='admitted'>
+    </div>
+    <div class="refused">
+
+    </div>
+    <script>
+        const admitted = document.querySelector('.admitted');
+        const refused = document.querySelector('.refused');
+        admitted.textContent = 'Admit: ';
+        refused.textContent = 'Refuse: ';
+
+        const people = ['Chris', 'Anne', 'Colin', 'Terri', 
+        'Phil', 'Lola', 'Sam', 'Kay', 'Bruce'];
+
+        console.log(people[4])
+        const refused_people = [people[4], people[5],people[0]];
+        
+        let check_refusal = function (person, refused_people) {
+            for(let i = 0; i < refused_people.length; i++){
+                if(person === refused_people[i]) {
+                    return true; 
+                }
+            }
+            return false; 
+        }
+
+        for(let list_index = 0; list_index < people.length; list_index++) {
+            let person = people[list_index]; 
+            if(check_refusal(person,refused_people)){
+                refused.textContent += person + ", ";
+            } else {
+                admitted.textContent += person + ", ";
+            }
+        }
+
+        refused.textContent = refused.textContent.slice(0,refused.textContent.length-2); 
+        admitted.textContent = admitted.textContent.slice(0,admitted.textContent.length-2);
+    </script>
+</html>
