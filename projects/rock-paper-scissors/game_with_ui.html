@@ -1,39 +1,56 @@
 <!DOCTYPE html>
 <html>
     <style>
-        #container .click{
-            /* visibility: visible; */
-            pointer-events: none;
-        }
-        #container .clicked {
-            /* visibility: hidden; */
-            pointer-events: none;
-            border-style: dotted;
-        }
         .options {
             display: flex;
             flex-direction: row;
             justify-content: center;
         }
+
+         input {
+            position: absolute;
+            opacity: 0;
+            width: 0;
+            height: 0; 
+        } 
+
+        h1 {
+            display: flex;
+            justify-content: center;
+        }
+
+        .selected {
+            border-style: solid;
+        }
+
+        .unselected {
+            border-style: none;
+        }
+
     </style>
     <body>
+        <h1>Player Choices:</h1>
         <div class="player options">
-            <div id="container">
-                <input data-type="rock" class="click" type="image" src="images/rock.png"> 
-            </div>
-            <div id="container">
-                <input data-type="paper" class="click" type="image" src="images/paper.png">
-            </div>
-            <div id="container">
-                <input data-type="scissors" class="click" type="image" src="images/scissors.png">
-            </div>
+            <label id="container">
+                <input data-type="rock" type="radio" name="choice">
+                <img src="images/rock.png"> 
+            </label>
+            <label id="container">
+                <input data-type="paper" class="" type="radio" name="choice">
+                <img src="images/paper.png">
+            </label>
+            <label id="container">
+                <input data-type="scissors" class="" type="radio" name="choice">
+                <img src="images/scissors.png">
+            </label>
         </div>
+        <h1>Computer Choice:</h1>
         <div class="computer options">
-        </div>
-        <div class="result">
             <img src="">
         </div>
-    <script src="ui_script.js"></script>
+        <div class="result">
+            <h1></h1>
+        </div>
     </body>
     <script src="ui_script.js"></script>
 </html>

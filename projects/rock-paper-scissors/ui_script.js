@@ -1,101 +1,137 @@
+const choices = {
+    ROCK: "rock",
+    PAPER: "paper",
+    SCISSORS: "scissors",
+}
+
+const results = {
+    UNKNOWN: -1,
+    LOSE: 0,
+    TIE: 1, 
+    WIN: 2, 
+}
+
 function computerPlay() {
     let random_number = Math.round(Math.random() * 2); // generate a random number from 0 to 2
     switch(random_number) {
         case 0:
-            return 'rock'
+            return choices.ROCK;
         case 1:
-            return 'paper'
+            return choices.PAPER; 
         case 2:
-            return 'scissors'
+            return choices.SCISSORS;
     }
 }
 
 function compareMoves(opposing_move, lose_against, win_against) {
-    if(opposing_move === lose_against) { // could be using enums here or mayb booleans
-        return 0; // lose
+    if(opposing_move === lose_against) { 
+        return results.LOSE; 
     } else if(opposing_move == win_against) {
-        return 2; // win
+        return results.WIN; 
     } else {
-        return 1; // tie
+        return results.TIE;
     }
 }
 
-let rock = 'rock', paper = 'paper', scissors = 'scissors' // to avoid mistyping the strings
 function playRound(playerSelection, computerSelection) {
-    playerSelection = playerSelection.toLowerCase()
-    let result = -1
+    playerSelection = playerSelection.toLowerCase();
+    let result = choices.UNKNOWN;
     switch(playerSelection) {
-        case rock:
-            result = compareMoves(computerSelection,paper,scissors)
+        case choices.ROCK:
+            result = compareMoves(computerSelection,choices.PAPER,choices.SCISSORS);
             break
-        case paper:
-            result = compareMoves(computerSelection,scissors,rock)
+        case choices.PAPER:
+            result = compareMoves(computerSelection,choices.SCISSORS,choices.ROCK);
             break
-        case scissors:
-            result = compareMoves(computerSelection,rock,paper)
+        case choices.SCISSORS:
+            result = compareMoves(computerSelection,choices.ROCK,choices.PAPER);
             break
     }
-    if(result === 0) {
-        console.log(`You Lose: ${computerSelection} beats ${playerSelection}`)
-    } else if (result === 2) {
-        console.log(`You Win: ${playerSelection} beats ${computerSelection}`)
-    } else {
-        console.log(`You Tied: ${playerSelection} and ${computerSelection} can't do shit against each other`)
-    } 
-    return result 
+
+    let message = "";
+    switch(result) {
+        case results.LOSE:
+            message = `You Lose: ${computerSelection} beats ${playerSelection}`;
+            console.log(message);
+            break;
+        case results.TIE:
+            message = `You Tied: ${playerSelection} and ${computerSelection} can't do shit against each other`;
+            console.log(message);
+            break;
+        case results.WIN:
+            message = `You Win: ${playerSelection} beats ${computerSelection}`;
+            console.log(message);
+            break;
+    }
+    return {result: result, message: message,}; 
 }
 
 function playGame(playerSelection) {
     return playRound(playerSelection, computerPlay())
 }
 
-function game() {
-    let playerWins = 0, computerWins = 0 
-    for(let count = 0; count < 6; count++){
-        let player_input = prompt("Pick: Rock, Paper or Scissors (any case)") // not checking for mistyped inputs
-        let result = playGame(player_input)
-        console.log(result)
-        if(result === 0) { // lost
+var playerWins = 0, computerWins = 0, game_count = 0;
+function game(result) {
+    game_count++;
+    switch(result.result){
+        case results.LOSE:
             computerWins++;
-        } else if (result === 2) { // win
-            playerWins++;
-        } else { // tie 
+            break;
+        case results.TIE:
             playerWins++;
             computerWins++;
-        }   
+            break;
+        case results.WIN:
+            playerWins++;
+            break;
     }
 
-    if (playerWins > computerWins) {
-        console.log(`Player: ${playerWins} vs Computer: ${computerWins} -- Player Wins`)
-    } else if (playerWins < computerWins) {
-        console.log(`Player: ${playerWins} vs Computer: ${computerWins} -- Computer Wins`)
+    if(game_count === 5) {
+        if (playerWins > computerWins) {
+            return `Player: ${playerWins} vs Computer: ${computerWins} -- Player Wins`; 
+        } else if (playerWins < computerWins) {
+            return `Player: ${playerWins} vs Computer: ${computerWins} -- Computer Wins`;
+        } else {
+            return `Player: ${playerWins} vs Computer: ${computerWins} -- Tie!`;
+        }
     } else {
-        console.log(`Player: ${playerWins} vs Computer: ${computerWins} -- Tie!`)
+        if (playerWins > computerWins) {
+            return `Player: ${playerWins} vs Computer: ${computerWins} -- Player is Winning`; 
+        } else if (playerWins < computerWins) {
+            return `Player: ${playerWins} vs Computer: ${computerWins} -- Computer is Winning`;
+        } else {
+            return `Player: ${playerWins} vs Computer: ${computerWins} -- Tie between Player and Computer!`;
+        }
     }
 }
 
 
-function button_visability(event) {
-    if(event.classList.contains('clicked')){
-        event.classList.remove('clicked');
-        event.classList.add('click')
-    } else {
-        event.classList.remove('click');
-        event.classList.add('clicked');
-    }
-}
-
-const buttons = document.querySelectorAll('div[id="container"]');
+const buttons = document.querySelectorAll('input');
 let inputs = Array.from(buttons);
 
+const computer_result_display = document.querySelector('div[class="computer options"]').querySelector('img'); 
+// better than using children[0]
+
+const text_result_display = document.querySelector('div[class="result"]').querySelector('h1');
+
 inputs.forEach((input) => {
-    // let cl = input.classList; 
-    // let flag = cl.contains("clicked"); 
-    // console.log(cl,flag);
-    input.addEventListener('click', function (e) { 
-        console.log(e.target);
-        console.log(e.target.classList);
-        // console.log(cl,flag);
-        button_visability(e.target.children[0]);
+    const image = document.querySelector(`img[src="images/${input.dataset.type}.png"]`);
+    input.parentElement.addEventListener('mousedown', () => { image.parentElement.setAttribute("class","selected");})
+    input.addEventListener('click', function(e) { 
+        // console.log(e.target);
+        // console.log(e.target.classList);
+        image.parentElement.setAttribute("class","unselected");
+        if(input.checked){
+            let computer_result = computerPlay();
+            let game_result = playRound(input.dataset.type, computer_result);
+            computer_result_display.src = `images/${computer_result}.png`; 
+            let result_info = game(game_result);
+            text_result_display.textContent = result_info;
+        } 
     });
 });
+
+/*
+- the way the borders come over the boxes is buggy
+- not making use of the single round result even though it is being returned (too much refactoring) 
+*/
