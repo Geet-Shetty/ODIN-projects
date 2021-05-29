@@ -1,15 +1,39 @@
 <!DOCTYPE html>
 <html>
     <style>
-        .click{
-            visibility: visible;
+        #container .click{
+            /* visibility: visible; */
+            pointer-events: none;
         }
-        .clicked {
-            visibility: hidden;
+        #container .clicked {
+            /* visibility: hidden; */
+            pointer-events: none;
+            border-style: dotted;
+        }
+        .options {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
         }
     </style>
-    <input data-type="paper" class="click" type="image" src="images/paper.png">
-    <input data-type="scissors" class="click" type="image" src="images/scissors.png">
-    <input data-type="rock" class="click" type="image" src="images/rock.png">
+    <body>
+        <div class="player options">
+            <div id="container">
+                <input data-type="rock" class="click" type="image" src="images/rock.png"> 
+            </div>
+            <div id="container">
+                <input data-type="paper" class="click" type="image" src="images/paper.png">
+            </div>
+            <div id="container">
+                <input data-type="scissors" class="click" type="image" src="images/scissors.png">
+            </div>
+        </div>
+        <div class="computer options">
+        </div>
+        <div class="result">
+            <img src="">
+        </div>
+    <script src="ui_script.js"></script>
+    </body>
     <script src="ui_script.js"></script>
 </html>

@@ -75,26 +75,27 @@ function game() {
 }
 
 
-function button_visability(input_class_list, flag) {
-    if(flag){
-        input_class_list.remove('clicked');
-        input_class_list.add('click')
+function button_visability(event) {
+    if(event.classList.contains('clicked')){
+        event.classList.remove('clicked');
+        event.classList.add('click')
     } else {
-        input_class_list.remove('click');
-        input_class_list.add('clicked');
+        event.classList.remove('click');
+        event.classList.add('clicked');
     }
 }
 
-const buttons = document.querySelectorAll('input');
+const buttons = document.querySelectorAll('div[id="container"]');
 let inputs = Array.from(buttons);
 
 inputs.forEach((input) => {
-    let cl = input.classList; 
-    let flag = cl.contains("clicked"); 
-    console.log(cl,flag);
+    // let cl = input.classList; 
+    // let flag = cl.contains("clicked"); 
+    // console.log(cl,flag);
     input.addEventListener('click', function (e) { 
-        console.log(e);
-        console.log(cl,flag);
-        button_visability(cl,flag);
+        console.log(e.target);
+        console.log(e.target.classList);
+        // console.log(cl,flag);
+        button_visability(e.target.children[0]);
     });
 });
