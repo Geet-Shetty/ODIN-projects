@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+    }
+
+    #display {
+      height: 5vh;
+      width: 30.5vh;
+      font-size: 19pt;
+    }
+
+    #buttons {
+      display: flex;
+      flex-direction: row;
+    }
+
+    #num_pad {
+      display: grid;
+      grid-template-columns: repeat(3, 60px);
+      grid-template-rows: repeat(4, 60px);
+    }
+
+    #operators {
+      display: grid;
+      grid-template-columns: repeat(2, 60px);
+      grid-template-rows: repeat(6, 60px);
+    }
+  </style>
+  <body>
+    <div id="calculator">
+      <div id="display_bar">
+        <form>
+          <input type="text" id="display" value="" readonly />
+        </form>
+      </div>
+      <div id="buttons">
+        <div id="num_pad"></div>
+        <div id="operators"></div>
+      </div>
+    </div>
+  </body>
+  <script src="script.js"></script>
+</html>

@@ -1,5 +1,3 @@
-// let grid_div_boxes = []
-
 const grid = document.querySelector('div[class="grid"]');
 
 function create_square_grid(size) {
