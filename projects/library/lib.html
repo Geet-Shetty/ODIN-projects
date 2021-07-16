@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <style>
+    form {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+    }
+    table {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+    }
+  </style>
+  <body>
+    <div id="createBook">
+      <form>
+        <label>Book Title</label>
+        <input id="title" type="text" />
+        <label>Author</label>
+        <input id="author" type="text" />
+        <label>Pages</label>
+        <input id="pages" type="text" />
+        <select id="read">
+          <option value="Read">Read</option>
+          <option value="Not read">Not Read</option>
+        </select>
+        <button id="add">Add Book</button>
+      </form>
+    </div>
+    <table>
+      <tbody>
+        <tr>
+          <th>Title</th>
+          <th>Author</th>
+          <th>Pages</th>
+          <th>Status</th>
+        </tr>
+      </tbody>
+      <tbody id="table_content"></tbody>
+    </table>
+  </body>
+  <script src="lib.js"></script>
+</html>
