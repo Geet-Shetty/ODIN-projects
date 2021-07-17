@@ -16,34 +16,17 @@ function addBookToLibrary(author, title, pages, read) {
 const table = document.querySelector('tbody[id="table_content"]');
 
 function displayLibrary() {
+  table.innerHTML = "";
   myLibrary.forEach((book) => {
-    // let row = document.createAttribute("tr");
-
-    // let title_col = document.createAttribute("td");
-    // let author_col = document.createAttribute("td");
-    // let pages_col = document.createAttribute("td");
-    // let status_col = document.createAttribute("td");
-
-    // title_col.value = book.title;
-    // author_col = book.author;
-    // pages_col = book.pages;
-    // status_col = book.read;
-
-    // row.appendChild(title_col);
-    // row.appendChild(author_col);
-    // row.appendChild(pages_col);
-    // row.appendChild(status_col);
-    // table.appendChild(row);
-    // table.innerHTML = "";
-    const htmlBook = `
+    table.innerHTML += `
     <tr>
-      <td>${book.name}</td>
+      <td>${book.title}</td>
       <td>${book.author}</td>
-      <td>${book.read}</td>
       <td>${book.pages}</td>
+      <td>${book.read}</td>
     </tr>
     `;
-    table.insertAdjacentHTML("afterend", htmlBook);
+    // table.insertAdjacentHTML("afterbegin", htmlBook);
   });
 }
 

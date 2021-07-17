@@ -6,10 +6,29 @@
       flex-direction: row;
       justify-content: space-evenly;
     }
-    table {
+    /* table {
       display: flex;
       flex-direction: column;
       justify-content: space-evenly;
+    } */
+    #table_div {
+      display: flex;
+      justify-content: center;
+    }
+    table {
+      border-collapse: collapse;
+      text-indent: initial;
+      border-spacing: 0;
+    }
+    td {
+      display: table-cell;
+      vertical-align: inherit;
+    }
+    th,
+    td {
+      padding: 12px 15px;
+      text-align: left;
+      border-bottom: 1px solid #e1e1e1;
     }
   </style>
   <body>
@@ -25,20 +44,22 @@
           <option value="Read">Read</option>
           <option value="Not read">Not Read</option>
         </select>
-        <button id="add">Add Book</button>
+        <button id="add" type="button">Add Book</button>
       </form>
     </div>
-    <table>
-      <tbody>
-        <tr>
-          <th>Title</th>
-          <th>Author</th>
-          <th>Pages</th>
-          <th>Status</th>
-        </tr>
-      </tbody>
-      <tbody id="table_content"></tbody>
-    </table>
+    <div id="table_div">
+      <table>
+        <tbody>
+          <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Pages</th>
+            <th>Status</th>
+          </tr>
+        </tbody>
+        <tbody id="table_content"></tbody>
+      </table>
+    </div>
   </body>
   <script src="lib.js"></script>
 </html>
